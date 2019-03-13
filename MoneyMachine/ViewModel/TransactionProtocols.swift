@@ -29,3 +29,15 @@ protocol TransactionViewModelProtocol: TransactionBaseInfoProtocol {
     func doesMatchDecimalPattern(_ text: String) -> Bool
     
 }
+
+protocol TransactionProtocol {
+    init(context moc: NSManagedObjectContext)
+    var user: User? { get set }
+    var tag: Tag? { get set }
+    var transactionType: TransactionType? { get set }
+    var amount: Double { get set }
+    var note: String? { get set }
+    var date: Date? { get set }
+}
+
+extension Transaction: TransactionProtocol { }

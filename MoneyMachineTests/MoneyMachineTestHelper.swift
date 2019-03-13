@@ -231,3 +231,45 @@ class FakePickerView: UIPickerView {
         return 0
     }
 }
+
+class FakeTransaction: NSObject, TransactionProtocol {
+    
+    var testUser: User?
+    var testTag: Tag?
+    var testTransactionType: TransactionType?
+    
+    var amount: Double = 0.0
+    var note: String? = ""
+    var date: Date? = nil
+
+    var user: User? {
+        get {
+            return testUser
+        }
+        set {
+            testUser = newValue
+        }
+    }
+    
+    var tag: Tag? {
+        get {
+            return testTag
+        }
+        set {
+            testTag = newValue
+        }
+    }
+    
+    var transactionType: TransactionType? {
+        get {
+            return testTransactionType
+        }
+        set {
+            testTransactionType = newValue
+        }
+    }
+    
+    required init(context moc: NSManagedObjectContext){
+        super.init()
+    }
+}

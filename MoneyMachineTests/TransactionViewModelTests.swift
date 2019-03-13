@@ -57,32 +57,21 @@ class TransactionViewModelTests: XCTestCase {
         XCTAssertEqual(title, expectedTitle)
     }
     
-    // TODO: should make testSaveTransaction work
-  /*  func testSaveTransaction() {
+    func testSaveTransaction() {
         // Given
-        // let fakePersistentContainer = FakePersistentContainer(name: "fake")
-        let appDelegate = FakeAppDelegate(nil)
-        appDelegate.fakePersistentContainer = nil
-        let subject = FakeTransactionViewModel(appDelegate: appDelegate)
+        fakeAppDelegate.fakePersistentContainer = nil
+        subject = FakeTransactionViewModel(appDelegate: fakeAppDelegate)
         
         // When
-        let saved = subject.processTransaction(with: 0, moneyTransactionType: .spend, amount: "100.00", description: "", tagIndex: 0)
+        let saved = subject.processTransaction(with: 0, moneyTransactionType: .spend, amount: "100.00", description: "", tagIndex: 0, transactionDataType: FakeTransaction.self)
         
         // Then
         XCTAssertTrue(saved)
         XCTAssertTrue(fakeAppDelegate.didSaveContext)
     }
-    */
     
     func testNotSaveTransactionIfUserIndexOutOfBoundry() {
-        // Given
-        fakeViewContext = FakeManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        let fakePersistentContainer = FakePersistentContainer(name: "fake")
-        fakePersistentContainer.fakeViewContext = fakeViewContext
-        fakeAppDelegate = FakeAppDelegate(fakePersistentContainer)
-        subject = FakeTransactionViewModel(appDelegate: fakeAppDelegate)
-        
-        // When
+        // Given, When
         let saved = subject.processTransaction(with: 3, moneyTransactionType: .spend, amount: "100.00", description: "", tagIndex: 0)
         
         // Then
@@ -91,14 +80,7 @@ class TransactionViewModelTests: XCTestCase {
     }
     
     func testNotSaveTransactionIfTagIndexOutOfBoundry() {
-        // Given
-        fakeViewContext = FakeManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        let fakePersistentContainer = FakePersistentContainer(name: "fake")
-        fakePersistentContainer.fakeViewContext = fakeViewContext
-        fakeAppDelegate = FakeAppDelegate(fakePersistentContainer)
-        subject = FakeTransactionViewModel(appDelegate: fakeAppDelegate)
-        
-        // When
+        // Given, When
         let saved = subject.processTransaction(with: 0, moneyTransactionType: .spend, amount: "100.00", description: "", tagIndex: 3)
         
         // Then

@@ -35,14 +35,27 @@ class TransactionViewModel: TransactionBaseInfoViewModel, TransactionViewModelPr
                             moneyTransactionType: MoneyTransactionType,
                             amount: String,
                             description: String,
-                            tagIndex: Int) -> Bool {
+                            tagIndex: Int) -> Bool{
+        return processTransaction(with: userIndex,
+                                  moneyTransactionType: moneyTransactionType,
+                                  amount: amount,
+                                  description: description,
+                                  tagIndex: tagIndex, transactionDataType: Transaction.self)
+    }
+    
+    func processTransaction(with userIndex: Int,
+                            moneyTransactionType: MoneyTransactionType,
+                            amount: String,
+                            description: String,
+                            tagIndex: Int,
+                            transactionDataType: TransactionProtocol.Type) -> Bool {
         
         guard userIndex <  users.count,
             tagIndex < tags.count,
             let context = context,
             let appDelegate = appDelegate else { return false }
         
-        let transation = Transaction(context: context)
+        var transation = transactionDataType.init(context: context)
         transation.transactionType = getTransactionType(for: moneyTransactionType)
         transation.amount = transactionAmount(from: amount, transactionType: moneyTransactionType)
         transation.user = users[userIndex]
@@ -51,7 +64,7 @@ class TransactionViewModel: TransactionBaseInfoViewModel, TransactionViewModelPr
         transation.date = Date()
         
         return appDelegate.saveContext(context)
-
+        
     }
     
     func doesMatchDecimalPattern(_ text: String) -> Bool {
