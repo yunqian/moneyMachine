@@ -78,8 +78,10 @@ class TransactionViewController: UIViewController {
     
     private func showAlert(with message: String) {
         alertController.message = message
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
-        alertController.addAction(okAction)
+        if alertController.actions.count == 0 {
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alertController.addAction(okAction)
+        }
         present(alertController, animated: true, completion: nil)
     }
 }
@@ -91,9 +93,9 @@ extension TransactionViewController: UIPickerViewDelegate, UIPickerViewDataSourc
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == userIdPickerView {
-            return viewModel.users.count
+            return viewModel.userCount
         } else {
-            return viewModel.tags.count
+            return viewModel.tagCount
         }
     }
     

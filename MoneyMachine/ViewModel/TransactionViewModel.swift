@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TransactionViewModel: TransactionBaseInfoViewModel, TransactionViewModelProtocol {
+class TransactionViewModel: TransactionBaseViewModel, TransactionViewModelProtocol {
     
     let savingName = "saving"
     let spendingName = "spending"

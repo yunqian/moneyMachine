@@ -11,8 +11,17 @@ import CoreData
 
 class TransactionBaseInfoViewModel: TransactionBaseInfoProtocol {
     
+    private static let shared: TransactionBaseInfoViewModel = TransactionBaseInfoViewModel()
     private (set) var context: NSManagedObjectContext?
     private (set) var appDelegate: AppDelegate?
+    
+    static func sharedInstance(appDelegate: UIApplicationDelegate? = nil) -> TransactionBaseInfoViewModel {
+        if let appDelegate = appDelegate as? AppDelegate {
+            shared.appDelegate = appDelegate
+            shared.context = appDelegate.persistentContainer.viewContext
+        }
+        return shared
+    }
     
     init(appDelegate: UIApplicationDelegate? = UIApplication.shared.delegate) {
         if let appDelegate = appDelegate as? AppDelegate {
@@ -20,6 +29,14 @@ class TransactionBaseInfoViewModel: TransactionBaseInfoProtocol {
             context = appDelegate.persistentContainer.viewContext
         }
     }
+    
+    lazy var userCount: Int = {
+        return users.count
+    }()
+    
+    lazy var tagCount: Int = {
+        return tags.count
+    }()
     
     lazy var users: [User] = {
         guard let allUsers = fetchEntity("User") as? [User] else { return [] }
@@ -47,4 +64,41 @@ class TransactionBaseInfoViewModel: TransactionBaseInfoProtocol {
         return []
     }
     
+}
+
+class TransactionBaseViewModel: TransactionBaseInfoProtocol {
+    
+    private var baseInfoViewModel = TransactionBaseInfoViewModel.sharedInstance()
+    
+    init(baseInfoViewModel: TransactionBaseInfoViewModel = TransactionBaseInfoViewModel.sharedInstance()) {
+        self.baseInfoViewModel = baseInfoViewModel
+    }
+    
+    var userCount: Int {
+        return baseInfoViewModel.userCount
+    }
+    
+    var tagCount: Int {
+        return baseInfoViewModel.tagCount
+    }
+    
+    var users: [User] {
+        return baseInfoViewModel.users
+    }
+    
+    var tags: [Tag] {
+        return baseInfoViewModel.tags
+    }
+    
+    var transactionTypes: [TransactionType] {
+        return baseInfoViewModel.transactionTypes
+    }
+    
+    var context: NSManagedObjectContext? {
+        return baseInfoViewModel.context
+    }
+    
+    var appDelegate: AppDelegate? {
+        return baseInfoViewModel.appDelegate
+    }
 }

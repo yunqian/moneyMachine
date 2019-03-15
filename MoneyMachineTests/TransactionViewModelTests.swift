@@ -19,7 +19,8 @@ class TransactionViewModelTests: XCTestCase {
         let fakePersistentContainer = FakePersistentContainer(name: "fake")
         fakePersistentContainer.fakeViewContext = fakeViewContext
         fakeAppDelegate = FakeAppDelegate(fakePersistentContainer)
-        subject = TransactionViewModel(appDelegate: fakeAppDelegate)
+        let baseInfoViewModel = TransactionBaseInfoViewModel.sharedInstance(appDelegate: fakeAppDelegate)
+        subject = TransactionViewModel(baseInfoViewModel: baseInfoViewModel)
     }
 
     func testDateInfo() {
@@ -60,7 +61,8 @@ class TransactionViewModelTests: XCTestCase {
     func testSaveTransaction() {
         // Given
         fakeAppDelegate.fakePersistentContainer = nil
-        subject = FakeTransactionViewModel(appDelegate: fakeAppDelegate)
+        let baseInfoViewModel = TransactionBaseInfoViewModel.sharedInstance(appDelegate: fakeAppDelegate)
+        subject = FakeTransactionViewModel(baseInfoViewModel: baseInfoViewModel)
         
         // When
         let saved = subject.processTransaction(with: 0, moneyTransactionType: .spend, amount: "100.00", description: "", tagIndex: 0, transactionDataType: FakeTransaction.self)
