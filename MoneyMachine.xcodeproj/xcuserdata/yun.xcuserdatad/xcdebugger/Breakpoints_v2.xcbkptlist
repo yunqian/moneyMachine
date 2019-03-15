@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneyMachine/ViewModel/TransactionViewModel.swift"
+            timestampString = "574369172.026365"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "processTransaction(userIndex:moneyTransactionType:amount:description:tagIndex:transactionDataType:appDelegate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoneyMachine.TransactionViewModel.processTransaction(userIndex: Swift.Int, moneyTransactionType: MoneyMachine.MoneyTransactionType, amount: Swift.String, description: Swift.String, tagIndex: Swift.Int, transactionDataType: MoneyMachine.TransactionProtocol.Type, appDelegate: Swift.Optional&lt;__C.UIApplicationDelegate&gt;) -&gt; Swift.Bool"
+                  moduleName = "MoneyMachine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yun/mytest/MoneyMachine/MoneyMachine/ViewModel/TransactionViewModel.swift"
+                  timestampString = "574357979.0030251"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "162">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoneyMachineTests.TransactionViewModel.processTransaction(userIndex: Swift.Int, moneyTransactionType: MoneyMachineTests.MoneyTransactionType, amount: Swift.String, description: Swift.String, tagIndex: Swift.Int, transactionDataType: MoneyMachineTests.TransactionProtocol.Type, appDelegate: Swift.Optional&lt;__C.UIApplicationDelegate&gt;) -&gt; Swift.Bool"
+                  moduleName = "MoneyMachineTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yun/mytest/MoneyMachine/MoneyMachine/ViewModel/TransactionViewModel.swift"
+                  timestampString = "574357979.819296"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "162">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

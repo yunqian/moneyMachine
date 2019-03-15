@@ -1,5 +1,5 @@
 //
-//  TransactioReportViewControllerTests.swift
+//  TransactionReportViewControllerTests.swift
 //  MoneyMachineTests
 //
 //  Created by Yun Qian on 3/12/19.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class TransactioReportViewControllerTests: XCTestCase {
+class TransactionReportViewControllerTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

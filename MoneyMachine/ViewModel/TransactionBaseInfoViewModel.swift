@@ -9,15 +9,13 @@
 import UIKit
 import CoreData
 
-class TransactionBaseInfoViewModel: TransactionBaseInfoProtocol {
+class TransactionBaseInfoViewModel: NSObject, TransactionBaseInfoProtocol {
     
     private static let shared: TransactionBaseInfoViewModel = TransactionBaseInfoViewModel()
     private (set) var context: NSManagedObjectContext?
-    private (set) var appDelegate: AppDelegate?
     
     static func sharedInstance(appDelegate: UIApplicationDelegate? = nil) -> TransactionBaseInfoViewModel {
         if let appDelegate = appDelegate as? AppDelegate {
-            shared.appDelegate = appDelegate
             shared.context = appDelegate.persistentContainer.viewContext
         }
         return shared
@@ -25,7 +23,6 @@ class TransactionBaseInfoViewModel: TransactionBaseInfoProtocol {
     
     init(appDelegate: UIApplicationDelegate? = UIApplication.shared.delegate) {
         if let appDelegate = appDelegate as? AppDelegate {
-            self.appDelegate = appDelegate
             context = appDelegate.persistentContainer.viewContext
         }
     }
@@ -66,11 +63,11 @@ class TransactionBaseInfoViewModel: TransactionBaseInfoProtocol {
     
 }
 
-class TransactionBaseViewModel: TransactionBaseInfoProtocol {
+class TransactionBaseViewModel: NSObject, TransactionBaseInfoProtocol {
     
-    private var baseInfoViewModel = TransactionBaseInfoViewModel.sharedInstance()
+    private (set) var baseInfoViewModel: TransactionBaseInfoProtocol = TransactionBaseInfoViewModel.sharedInstance()
     
-    init(baseInfoViewModel: TransactionBaseInfoViewModel = TransactionBaseInfoViewModel.sharedInstance()) {
+    init(baseInfoViewModel: TransactionBaseInfoProtocol = TransactionBaseInfoViewModel.sharedInstance()) {
         self.baseInfoViewModel = baseInfoViewModel
     }
     
@@ -98,7 +95,4 @@ class TransactionBaseViewModel: TransactionBaseInfoProtocol {
         return baseInfoViewModel.context
     }
     
-    var appDelegate: AppDelegate? {
-        return baseInfoViewModel.appDelegate
-    }
 }

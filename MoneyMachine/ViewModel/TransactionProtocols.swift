@@ -12,22 +12,32 @@ import CoreData
 protocol TransactionBaseInfoProtocol {
     var users: [User] { get }
     var tags: [Tag] { get }
+    var userCount: Int { get }
+    var tagCount: Int { get}
     var transactionTypes: [TransactionType] { get }
     var context: NSManagedObjectContext? { get }
 }
 
 protocol TransactionViewModelProtocol: TransactionBaseInfoProtocol {
-    var dateInfo: String { get }
-    func title(for transactionType: MoneyTransactionType) -> String
     func userId(for index:Int) -> String
     func tagName(for index:Int) -> String
-    func processTransaction(with userIndex:Int,
+    var dateInfo: String { get }
+    func title(for transactionType: MoneyTransactionType) -> String
+    func processTransaction(with userIndex: Int,
                             moneyTransactionType: MoneyTransactionType,
                             amount: String,
                             description: String,
                             tagIndex: Int) -> Bool
     func doesMatchDecimalPattern(_ text: String) -> Bool
     
+}
+
+protocol TransactionSearchViewModelProtocol: TransactionBaseInfoProtocol {
+    func userId(for index:Int) -> String
+    func tagName(for index:Int) -> String
+    func transactionTypeName(for index: Int) -> String
+    var title: String { get }
+    func searchTransaction(transactionTypeIndex: Int, userIdIndex: Int, tagNameIndex: Int, date: Date) -> [TransactionProtocol]
 }
 
 protocol TransactionProtocol {

@@ -29,8 +29,8 @@ class HomeViewControllerTests: XCTestCase {
     
     func testPrepareSegueToSaveMoney() {
         // Given
-        let transactionViewController = UIStoryboard(name: "Main", bundle: Bundle(for: HomeViewController.self)).instantiateViewController(withIdentifier: "transactionViewController") as! TransactionViewController
-        let fakeSegue = UIStoryboardSegue.init(identifier: "saveMoney", source: subject, destination: transactionViewController)
+        let transactionViewController = UIStoryboard(name: "Main", bundle: Bundle(for: HomeViewController.self)).instantiateViewController(withIdentifier: "TransactionViewController") as! TransactionViewController
+        let fakeSegue = UIStoryboardSegue(identifier: "saveMoney", source: subject, destination: transactionViewController)
         
         // When
         subject.prepare(for: fakeSegue, sender: nil)
@@ -41,8 +41,8 @@ class HomeViewControllerTests: XCTestCase {
     
     func testPrepareSegueToSendMoney() {
         // Given
-        let transactionViewController = UIStoryboard(name: "Main", bundle: Bundle(for: HomeViewController.self)).instantiateViewController(withIdentifier: "transactionViewController") as! TransactionViewController
-        let fakeSegue = UIStoryboardSegue.init(identifier: "spendMoney", source: subject, destination: transactionViewController)
+        let transactionViewController = UIStoryboard(name: "Main", bundle: Bundle(for: HomeViewController.self)).instantiateViewController(withIdentifier: "TransactionViewController") as! TransactionViewController
+        let fakeSegue = UIStoryboardSegue(identifier: "spendMoney", source: subject, destination: transactionViewController)
         
         // When
         subject.prepare(for: fakeSegue, sender: nil)

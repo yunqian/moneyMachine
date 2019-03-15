@@ -1,17 +1,17 @@
 //
-//  MoneyMachineTestHelper.swift
+//  CommonTestHelper.swift
 //  MoneyMachineTests
 //
-//  Created by Yun Qian on 3/12/19.
+//  Created by Yun Qian on 3/15/19.
 //  Copyright © 2019 Yun Qian. All rights reserved.
 //
 
-import XCTest
+import UIKit
 import CoreData
 
 class FakePersistentContainer: NSPersistentContainer {
     
-    var fakeViewContext: FakeManagedObjectContext? // = FakeManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    var fakeViewContext: FakeManagedObjectContext?
     
     override var viewContext: NSManagedObjectContext {
         if let fakeViewContext = fakeViewContext {
@@ -31,16 +31,18 @@ class FakeManagedObjectContext: NSManagedObjectContext {
     var didSave: Bool = false
     var fetchResult: [Any] = []
     var error: NSError? = nil
+    var fetchRequest: NSFetchRequest<NSFetchRequestResult>?
     
     override func save() throws {
         if let error = error {
             throw error
         } else {
-             didSave = true
+            didSave = true
         }
     }
-   
+    
     override func fetch(_ request: NSFetchRequest<NSFetchRequestResult>) throws -> [Any] {
+        fetchRequest = request
         if let error = error {
             throw error
         } else {
@@ -60,7 +62,7 @@ class FakeAppDelegate: AppDelegate {
         fakePersistentContainer = persistentContainer
         super.init()
     }
-        
+    
     override var persistentContainer: NSPersistentContainer {
         get {
             if let testPersistentContainer = fakePersistentContainer {
@@ -81,11 +83,11 @@ class FakeAppDelegate: AppDelegate {
         didSaveContext = true
         saveCounter += 1
         if shouldTestSuperSave {
-             return super.saveContext(context)
+            return super.saveContext(context)
         }
         return true
     }
-
+    
 }
 
 class FakeUserDefault: UserDefaults {
@@ -102,12 +104,10 @@ class FakeUserDefault: UserDefaults {
         newKey = defaultName
         newValue = value
     }
-   
-}
-
-class FakeManagedObjectModel: NSManagedObjectModel {
     
 }
+
+class FakeManagedObjectModel: NSManagedObjectModel { }
 
 class FakeStoryboardSegue: UIStoryboardSegue {
     
@@ -121,47 +121,6 @@ class FakeStoryboardSegue: UIStoryboardSegue {
     override var identifier: String? {
         return fakeIdentifier
     }
-}
-
-class FakeTransactionViewModel: TransactionViewModel {
-
-    override var users: [User] {
-        get {
-            let fakeUser1 = FakeUser()
-            fakeUser1.testId = "001"
-            let fakeUser2 = FakeUser()
-            fakeUser2.testId = "002"
-            return [fakeUser1, fakeUser2]
-            
-        }
-        set { }
-    }
-    
-    override var tags: [Tag] {
-        get {
-            let fakeTag1 = FakeTag()
-            fakeTag1.testName = "tag1"
-            let fakeTag2 = FakeTag()
-            fakeTag2.testName = "tag2"
-            let fakeTag3 = FakeTag()
-            fakeTag3.testName = "tag3"
-            return [fakeTag1, fakeTag2, fakeTag3]
-            
-        }
-        set { }
-    }
-    
-    override var transactionTypes: [TransactionType] {
-        get {
-            let fakeType1 = FakeTransactionType()
-            fakeType1.testName = "spending"
-            let fakeType2 = FakeTransactionType()
-            fakeType2.testName = "saving"
-            return [fakeType1, fakeType2]
-        }
-        set { }
-    }
-    
 }
 
 class FakeUser: User {
@@ -197,41 +156,6 @@ class FakeTag: Tag {
     }
 }
 
-class TestTransactionViewModel: FakeTransactionViewModel {
-    var processSuccuss: Bool = true
-
-    override func processTransaction(with userIndex: Int, moneyTransactionType: MoneyTransactionType, amount: String, description: String, tagIndex: Int) -> Bool {
-        return processSuccuss
-    }
-}
-
-class FakeView: UIView {
-    
-    var gesture: UITapGestureRecognizer?
-    var gestureRecognizerAdded: Bool = false
-    var editingEnded: Bool = false
-    
-    override func addGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
-        gestureRecognizerAdded = true
-        gesture = gestureRecognizer as? UITapGestureRecognizer
-        super.addGestureRecognizer(gestureRecognizer)
-    }
-    
-    override func endEditing(_ force: Bool) -> Bool {
-        if force {
-            editingEnded = true
-        }
-        return super.endEditing(force)
-    }
-}
-
-class FakePickerView: UIPickerView {
-    
-    override func selectedRow(inComponent component: Int) -> Int {
-        return 0
-    }
-}
-
 class FakeTransaction: NSObject, TransactionProtocol {
     
     var testUser: User?
@@ -241,7 +165,7 @@ class FakeTransaction: NSObject, TransactionProtocol {
     var amount: Double = 0.0
     var note: String? = ""
     var date: Date? = nil
-
+    
     var user: User? {
         get {
             return testUser
@@ -271,5 +195,33 @@ class FakeTransaction: NSObject, TransactionProtocol {
     
     required init(context moc: NSManagedObjectContext){
         super.init()
+    }
+}
+
+
+class FakeView: UIView {
+    
+    var gesture: UITapGestureRecognizer?
+    var gestureRecognizerAdded: Bool = false
+    var editingEnded: Bool = false
+    
+    override func addGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer) {
+        gestureRecognizerAdded = true
+        gesture = gestureRecognizer as? UITapGestureRecognizer
+        super.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    override func endEditing(_ force: Bool) -> Bool {
+        if force {
+            editingEnded = true
+        }
+        return super.endEditing(force)
+    }
+}
+
+class FakePickerView: UIPickerView {
+    
+    override func selectedRow(inComponent component: Int) -> Int {
+        return 0
     }
 }

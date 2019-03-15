@@ -65,7 +65,7 @@ class TransactionViewModelTests: XCTestCase {
         subject = FakeTransactionViewModel(baseInfoViewModel: baseInfoViewModel)
         
         // When
-        let saved = subject.processTransaction(with: 0, moneyTransactionType: .spend, amount: "100.00", description: "", tagIndex: 0, transactionDataType: FakeTransaction.self)
+        let saved = subject.processTransaction(userIndex: 0, moneyTransactionType: .spend, amount: "100.00", description: "", tagIndex: 0, transactionDataType: FakeTransaction.self, appDelegate: fakeAppDelegate)
         
         // Then
         XCTAssertTrue(saved)

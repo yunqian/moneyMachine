@@ -36,7 +36,6 @@ class TransactionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupProperties()
         
         title = viewModel.title(for: mondeyTransactionType)
         dateLabel.text = viewModel.dateInfo

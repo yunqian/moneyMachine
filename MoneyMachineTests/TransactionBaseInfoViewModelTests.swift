@@ -140,5 +140,5 @@ class TransactionBaseInfoViewModelTests: XCTestCase {
         XCTAssertNotNil(types)
         XCTAssertEqual(types.count, 0)
     }
-
+    
 }

@@ -10,24 +10,52 @@ import XCTest
 
 class TransactionSearchViewControllerTests: XCTestCase {
 
+    var subject: TransactionSearchViewController!
+    var searchViewModel: TransactionSearchViewModel!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        subject =  UIStoryboard(name: "Main", bundle: Bundle(for: TransactionSearchViewController.self)).instantiateViewController(withIdentifier: "TransactionSearchViewController") as? TransactionSearchViewController
+        subject.loadViewIfNeeded()
+        
+        let fakeViewModel = FakeTransactionViewModel()
+        searchViewModel = TransactionSearchViewModel(baseInfoViewModel: fakeViewModel)
+        subject.setupViewModel(viewModel: searchViewModel)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testTitle() {
+        // Given, When
+        let expectedTitle = searchViewModel.title
+        
+        // Then
+        XCTAssertEqual(subject.title, expectedTitle)
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testTransactionSegmentedControlTitles() {
+        // Given, When
+        subject.setupViewModel(viewModel: searchViewModel)
+        subject.viewDidLoad()
+        let expectedTitle0 = searchViewModel.transactionTypeName(for: 0)
+        let expectedTitle1 = searchViewModel.transactionTypeName(for: 1)
+        
+        // Then
+        XCTAssertEqual(subject.transactionSegmentedControl.titleForSegment(at: 0), expectedTitle0)
+        XCTAssertEqual(subject.transactionSegmentedControl.titleForSegment(at: 1), expectedTitle1)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testPrepareSegueToShowTransactionResults() {
+        // Given
+        let fakeSearchViewModel = FakeTransactionSearchViewModel(baseInfoViewModel: FakeTransactionViewModel())
+        subject.setupViewModel(viewModel: fakeSearchViewModel)
+        
+        let transactionViewController = UIStoryboard(name: "Main", bundle: Bundle(for: TransactionSearchResultsTableViewController.self)).instantiateViewController(withIdentifier: "TransactionSearchResultsTableViewController") as! TransactionSearchResultsTableViewController
+        let fakeSegue = UIStoryboardSegue(identifier: "showResult", source: subject, destination: transactionViewController)
+        
+        // When
+        subject.prepare(for: fakeSegue, sender: nil)
+        
+        // Then
+        XCTAssertNotNil(transactionViewController.viewModel)
+        XCTAssertEqual(transactionViewController.viewModel.numberOfRows, fakeSearchViewModel.fakeTransactions.count)
     }
-
 }

@@ -36,24 +36,25 @@ class TransactionViewModel: TransactionBaseViewModel, TransactionViewModelProtoc
                             amount: String,
                             description: String,
                             tagIndex: Int) -> Bool{
-        return processTransaction(with: userIndex,
+        return processTransaction(userIndex: userIndex,
                                   moneyTransactionType: moneyTransactionType,
                                   amount: amount,
                                   description: description,
                                   tagIndex: tagIndex, transactionDataType: Transaction.self)
     }
     
-    func processTransaction(with userIndex: Int,
+    func processTransaction(userIndex: Int,
                             moneyTransactionType: MoneyTransactionType,
                             amount: String,
                             description: String,
                             tagIndex: Int,
-                            transactionDataType: TransactionProtocol.Type) -> Bool {
+                            transactionDataType: TransactionProtocol.Type,
+                            appDelegate: UIApplicationDelegate? =  UIApplication.shared.delegate) -> Bool {
         
         guard userIndex <  users.count,
             tagIndex < tags.count,
             let context = context,
-            let appDelegate = appDelegate else { return false }
+            let appDelegate = appDelegate as? AppDelegate else { return false }
         
         var transation = transactionDataType.init(context: context)
         transation.transactionType = getTransactionType(for: moneyTransactionType)
