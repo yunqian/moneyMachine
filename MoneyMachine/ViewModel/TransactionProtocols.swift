@@ -51,3 +51,16 @@ protocol TransactionProtocol {
 }
 
 extension Transaction: TransactionProtocol { }
+
+protocol TransactionReportProtocol {
+    
+    var numbersOfReportSection: Int { get }
+    
+    func rowNumbersOfReportSection(section: Int) -> Int
+    
+    func reportSectionTitle(section: Int) -> String
+    
+    func reportRowViewModel(at indexPath: IndexPath) -> TransactionResportRowViewModel
+    
+    func updatePeriodModel(at index: Int)
+}

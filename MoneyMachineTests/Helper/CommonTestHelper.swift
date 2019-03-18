@@ -30,6 +30,8 @@ class FakePersistentContainer: NSPersistentContainer {
 class FakeManagedObjectContext: NSManagedObjectContext {
     var didSave: Bool = false
     var fetchResult: [Any] = []
+    var transactionFetchResult: [Any] = []
+    var tagFetchResult: [Any] = []
     var error: NSError? = nil
     var fetchRequest: NSFetchRequest<NSFetchRequestResult>?
     
@@ -43,9 +45,16 @@ class FakeManagedObjectContext: NSManagedObjectContext {
     
     override func fetch(_ request: NSFetchRequest<NSFetchRequestResult>) throws -> [Any] {
         fetchRequest = request
+        
         if let error = error {
             throw error
         } else {
+            let firstFetchProperty = fetchRequest?.propertiesToFetch?.first as? String ?? ""
+            if firstFetchProperty == "tag.name" {
+                return tagFetchResult
+            } else if firstFetchProperty == "user.id" {
+                return transactionFetchResult
+            }
             return fetchResult
         }
     }

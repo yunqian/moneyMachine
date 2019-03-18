@@ -53,6 +53,7 @@ class TransactionSearchResultsTableViewControllerTests: XCTestCase {
     
     func testCellForRow() {
         // Given
+        subject.loadView()
         let fakeTransaction = FakeTransaction(context: FakeManagedObjectContext(concurrencyType: .mainQueueConcurrencyType))
         let viewModel = TransactionSearchResultViewModel([fakeTransaction])
         subject.viewModel = viewModel

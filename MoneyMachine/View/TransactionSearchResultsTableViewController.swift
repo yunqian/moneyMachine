@@ -38,8 +38,10 @@ class TransactionSearchResultsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionSearchResultTableViewCell", for: indexPath) as! TransactionSearchResultTableViewCell
-        cell.bindData(viewModel: viewModel.transactionResultCellViewModel(for: indexPath.row))
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionSearchResultTableViewCell", for: indexPath)
+        if let cell = cell as? TransactionSearchResultTableViewCell {
+            cell.bindData(viewModel: viewModel.transactionResultCellViewModel(for: indexPath.row))
+        }
         
         return cell
     }

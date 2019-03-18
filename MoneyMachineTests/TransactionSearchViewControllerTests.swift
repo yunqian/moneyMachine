@@ -15,7 +15,7 @@ class TransactionSearchViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        subject =  UIStoryboard(name: "Main", bundle: Bundle(for: TransactionSearchViewController.self)).instantiateViewController(withIdentifier: "TransactionSearchViewController") as? TransactionSearchViewController
+        subject = UIStoryboard(name: "Main", bundle: Bundle(for: TransactionSearchViewController.self)).instantiateViewController(withIdentifier: "TransactionSearchViewController") as? TransactionSearchViewController
         subject.loadViewIfNeeded()
         
         let fakeViewModel = FakeTransactionViewModel()

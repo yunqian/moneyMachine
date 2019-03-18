@@ -7,7 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE014D8E223FE4DE0081CA8B /* TransactionReportViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE014D8D223FE4DE0081CA8B /* TransactionReportViewModelTests.swift */; };
+		AE67A234223F350800A4BEC1 /* TransactionReportTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67A233223F350800A4BEC1 /* TransactionReportTableViewCellTests.swift */; };
+		AE67A236223F36E100A4BEC1 /* TransactionReportModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67A235223F36E100A4BEC1 /* TransactionReportModelTests.swift */; };
+		AE67A238223F37B400A4BEC1 /* TransactionResportRowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE67A237223F37B400A4BEC1 /* TransactionResportRowViewModelTests.swift */; };
 		AE7218AF223C2F1B00DC163F /* TransactionBaseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218AE223C2F1B00DC163F /* TransactionBaseViewModelTests.swift */; };
+		AE7218B1223C40D200DC163F /* TransactionReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B0223C40D200DC163F /* TransactionReportViewModel.swift */; };
+		AE7218B2223C40D200DC163F /* TransactionReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B0223C40D200DC163F /* TransactionReportViewModel.swift */; };
+		AE7218B4223DF34D00DC163F /* TransactionReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B3223DF34D00DC163F /* TransactionReportModel.swift */; };
+		AE7218B5223DF34D00DC163F /* TransactionReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B3223DF34D00DC163F /* TransactionReportModel.swift */; };
+		AE7218B7223E82BA00DC163F /* TransactionResportRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B6223E82BA00DC163F /* TransactionResportRowViewModel.swift */; };
+		AE7218B8223E82BA00DC163F /* TransactionResportRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B6223E82BA00DC163F /* TransactionResportRowViewModel.swift */; };
+		AE7218BA223E889100DC163F /* TransactionReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B9223E889100DC163F /* TransactionReportTableViewCell.swift */; };
+		AE7218BB223E889100DC163F /* TransactionReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218B9223E889100DC163F /* TransactionReportTableViewCell.swift */; };
+		AE7218C6223F058000DC163F /* TransactionPeriodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218C5223F058000DC163F /* TransactionPeriodModel.swift */; };
+		AE7218C7223F058000DC163F /* TransactionPeriodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218C5223F058000DC163F /* TransactionPeriodModel.swift */; };
+		AE7218C9223F262C00DC163F /* TransactionPeriodModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE7218C8223F262C00DC163F /* TransactionPeriodModelTests.swift */; };
 		AE996D2F223BD94A00F750A0 /* TransactionSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE996D2E223BD94A00F750A0 /* TransactionSearchViewModel.swift */; };
 		AE996D31223BD95600F750A0 /* TransactionSearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE996D30223BD95600F750A0 /* TransactionSearchResultViewModel.swift */; };
 		AE996D32223BD98E00F750A0 /* TransactionSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE996D2E223BD94A00F750A0 /* TransactionSearchViewModel.swift */; };
@@ -32,8 +47,8 @@
 		AEE1D516223803740020B8DA /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D514223803740020B8DA /* TransactionViewController.swift */; };
 		AEE1D5182238038A0020B8DA /* TransactionSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D5172238038A0020B8DA /* TransactionSearchViewController.swift */; };
 		AEE1D5192238038A0020B8DA /* TransactionSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D5172238038A0020B8DA /* TransactionSearchViewController.swift */; };
-		AEE1D51B2238039C0020B8DA /* TransactioReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D51A2238039C0020B8DA /* TransactioReportViewController.swift */; };
-		AEE1D51C2238039C0020B8DA /* TransactioReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D51A2238039C0020B8DA /* TransactioReportViewController.swift */; };
+		AEE1D51B2238039C0020B8DA /* TransactionReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D51A2238039C0020B8DA /* TransactionReportViewController.swift */; };
+		AEE1D51C2238039C0020B8DA /* TransactionReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D51A2238039C0020B8DA /* TransactionReportViewController.swift */; };
 		AEE1D51E223804470020B8DA /* TransactionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D51D223804470020B8DA /* TransactionProtocols.swift */; };
 		AEE1D51F223804470020B8DA /* TransactionProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D51D223804470020B8DA /* TransactionProtocols.swift */; };
 		AEE1D5212238047D0020B8DA /* TransactionBaseInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1D5202238047D0020B8DA /* TransactionBaseInfoViewModel.swift */; };
@@ -64,7 +79,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE014D8D223FE4DE0081CA8B /* TransactionReportViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportViewModelTests.swift; sourceTree = "<group>"; };
+		AE67A233223F350800A4BEC1 /* TransactionReportTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportTableViewCellTests.swift; sourceTree = "<group>"; };
+		AE67A235223F36E100A4BEC1 /* TransactionReportModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportModelTests.swift; sourceTree = "<group>"; };
+		AE67A237223F37B400A4BEC1 /* TransactionResportRowViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResportRowViewModelTests.swift; sourceTree = "<group>"; };
 		AE7218AE223C2F1B00DC163F /* TransactionBaseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBaseViewModelTests.swift; sourceTree = "<group>"; };
+		AE7218B0223C40D200DC163F /* TransactionReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportViewModel.swift; sourceTree = "<group>"; };
+		AE7218B3223DF34D00DC163F /* TransactionReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportModel.swift; sourceTree = "<group>"; };
+		AE7218B6223E82BA00DC163F /* TransactionResportRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResportRowViewModel.swift; sourceTree = "<group>"; };
+		AE7218B9223E889100DC163F /* TransactionReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportTableViewCell.swift; sourceTree = "<group>"; };
+		AE7218C5223F058000DC163F /* TransactionPeriodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPeriodModel.swift; sourceTree = "<group>"; };
+		AE7218C8223F262C00DC163F /* TransactionPeriodModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPeriodModelTests.swift; sourceTree = "<group>"; };
 		AE996D2E223BD94A00F750A0 /* TransactionSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchViewModel.swift; sourceTree = "<group>"; };
 		AE996D30223BD95600F750A0 /* TransactionSearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchResultViewModel.swift; sourceTree = "<group>"; };
 		AE996D34223BD9B400F750A0 /* TransactionSearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchResultsTableViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +111,7 @@
 		AEE1D511223803510020B8DA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AEE1D514223803740020B8DA /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
 		AEE1D5172238038A0020B8DA /* TransactionSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchViewController.swift; sourceTree = "<group>"; };
-		AEE1D51A2238039C0020B8DA /* TransactioReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactioReportViewController.swift; sourceTree = "<group>"; };
+		AEE1D51A2238039C0020B8DA /* TransactionReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionReportViewController.swift; sourceTree = "<group>"; };
 		AEE1D51D223804470020B8DA /* TransactionProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionProtocols.swift; sourceTree = "<group>"; };
 		AEE1D5202238047D0020B8DA /* TransactionBaseInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionBaseInfoViewModel.swift; sourceTree = "<group>"; };
 		AEE1D5232238049B0020B8DA /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
@@ -122,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				AEE1D4F3223801E80020B8DA /* MoneyMachine.xcdatamodeld */,
+				AE7218B3223DF34D00DC163F /* TransactionReportModel.swift */,
+				AE7218C5223F058000DC163F /* TransactionPeriodModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +212,11 @@
 				AE996D42223BF13100F750A0 /* TransactionSearchResultsTableViewControllerTests.swift */,
 				AE996D44223BF87000F750A0 /* TransactionSearchViewModelTests.swift */,
 				AE7218AE223C2F1B00DC163F /* TransactionBaseViewModelTests.swift */,
+				AE7218C8223F262C00DC163F /* TransactionPeriodModelTests.swift */,
+				AE67A233223F350800A4BEC1 /* TransactionReportTableViewCellTests.swift */,
+				AE67A235223F36E100A4BEC1 /* TransactionReportModelTests.swift */,
+				AE67A237223F37B400A4BEC1 /* TransactionResportRowViewModelTests.swift */,
+				AE014D8D223FE4DE0081CA8B /* TransactionReportViewModelTests.swift */,
 			);
 			path = MoneyMachineTests;
 			sourceTree = "<group>";
@@ -195,9 +227,10 @@
 				AEE1D511223803510020B8DA /* HomeViewController.swift */,
 				AEE1D514223803740020B8DA /* TransactionViewController.swift */,
 				AEE1D5172238038A0020B8DA /* TransactionSearchViewController.swift */,
-				AEE1D51A2238039C0020B8DA /* TransactioReportViewController.swift */,
-				AE996D34223BD9B400F750A0 /* TransactionSearchResultsTableViewController.swift */,
 				AE996D37223BDAA400F750A0 /* TransactionSearchResultTableViewCell.swift */,
+				AE996D34223BD9B400F750A0 /* TransactionSearchResultsTableViewController.swift */,
+				AEE1D51A2238039C0020B8DA /* TransactionReportViewController.swift */,
+				AE7218B9223E889100DC163F /* TransactionReportTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +243,8 @@
 				AEE1D5232238049B0020B8DA /* TransactionViewModel.swift */,
 				AE996D2E223BD94A00F750A0 /* TransactionSearchViewModel.swift */,
 				AE996D30223BD95600F750A0 /* TransactionSearchResultViewModel.swift */,
+				AE7218B6223E82BA00DC163F /* TransactionResportRowViewModel.swift */,
+				AE7218B0223C40D200DC163F /* TransactionReportViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -319,16 +354,21 @@
 				AE996D38223BDAA400F750A0 /* TransactionSearchResultTableViewCell.swift in Sources */,
 				AE996D35223BD9B400F750A0 /* TransactionSearchResultsTableViewController.swift in Sources */,
 				AEE1D51E223804470020B8DA /* TransactionProtocols.swift in Sources */,
+				AE7218B4223DF34D00DC163F /* TransactionReportModel.swift in Sources */,
 				AEE1D5212238047D0020B8DA /* TransactionBaseInfoViewModel.swift in Sources */,
 				AEE1D515223803740020B8DA /* TransactionViewController.swift in Sources */,
-				AEE1D51B2238039C0020B8DA /* TransactioReportViewController.swift in Sources */,
+				AEE1D51B2238039C0020B8DA /* TransactionReportViewController.swift in Sources */,
 				AE996D2F223BD94A00F750A0 /* TransactionSearchViewModel.swift in Sources */,
+				AE7218B7223E82BA00DC163F /* TransactionResportRowViewModel.swift in Sources */,
 				AEE1D4ED223801E80020B8DA /* AppDelegate.swift in Sources */,
 				AEE1D4F5223801E80020B8DA /* MoneyMachine.xcdatamodeld in Sources */,
 				AEE1D512223803510020B8DA /* HomeViewController.swift in Sources */,
 				AE996D31223BD95600F750A0 /* TransactionSearchResultViewModel.swift in Sources */,
 				AEE1D5182238038A0020B8DA /* TransactionSearchViewController.swift in Sources */,
+				AE7218B1223C40D200DC163F /* TransactionReportViewModel.swift in Sources */,
+				AE7218C6223F058000DC163F /* TransactionPeriodModel.swift in Sources */,
 				AEE1D5242238049B0020B8DA /* TransactionViewModel.swift in Sources */,
+				AE7218BA223E889100DC163F /* TransactionReportTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +378,7 @@
 			files = (
 				AEE1D516223803740020B8DA /* TransactionViewController.swift in Sources */,
 				AE996D3C223BDBF800F750A0 /* TransactionSearchResultTableViewCellTests.swift in Sources */,
+				AE7218B8223E82BA00DC163F /* TransactionResportRowViewModel.swift in Sources */,
 				AEE1D5412238155B0020B8DA /* MoneyMachine.xcdatamodeld in Sources */,
 				AE996D36223BD9B400F750A0 /* TransactionSearchResultsTableViewController.swift in Sources */,
 				AE996D41223BEB6400F750A0 /* TransactionSearchResultViewModelTests.swift in Sources */,
@@ -345,23 +386,32 @@
 				AEE1D53D223807C00020B8DA /* TransactionViewModelTests.swift in Sources */,
 				AEE1D513223803510020B8DA /* HomeViewController.swift in Sources */,
 				AE996D3F223BDC9E00F750A0 /* CommonTestHelper.swift in Sources */,
-				AEE1D51C2238039C0020B8DA /* TransactioReportViewController.swift in Sources */,
+				AEE1D51C2238039C0020B8DA /* TransactionReportViewController.swift in Sources */,
 				AEE1D533223807170020B8DA /* TransactionReportViewControllerTests.swift in Sources */,
+				AE67A234223F350800A4BEC1 /* TransactionReportTableViewCellTests.swift in Sources */,
 				AEE1D5222238047D0020B8DA /* TransactionBaseInfoViewModel.swift in Sources */,
 				AEE1D53F22380D410020B8DA /* MoneyMachineTransactionTestHelper.swift in Sources */,
 				AEE1D53B223807AB0020B8DA /* TransactionBaseInfoViewModelTests.swift in Sources */,
+				AE67A238223F37B400A4BEC1 /* TransactionResportRowViewModelTests.swift in Sources */,
 				AEE1D54022380F570020B8DA /* AppDelegate.swift in Sources */,
 				AE996D33223BD99200F750A0 /* TransactionSearchResultViewModel.swift in Sources */,
+				AE7218BB223E889100DC163F /* TransactionReportTableViewCell.swift in Sources */,
 				AEE1D531223807060020B8DA /* TransactionSearchViewControllerTests.swift in Sources */,
 				AEE1D537223807720020B8DA /* HomeViewControllerTests.swift in Sources */,
+				AE014D8E223FE4DE0081CA8B /* TransactionReportViewModelTests.swift in Sources */,
 				AEE1D51F223804470020B8DA /* TransactionProtocols.swift in Sources */,
 				AEE1D5192238038A0020B8DA /* TransactionSearchViewController.swift in Sources */,
 				AE996D39223BDAA400F750A0 /* TransactionSearchResultTableViewCell.swift in Sources */,
+				AE7218C7223F058000DC163F /* TransactionPeriodModel.swift in Sources */,
 				AEE1D5252238049B0020B8DA /* TransactionViewModel.swift in Sources */,
+				AE67A236223F36E100A4BEC1 /* TransactionReportModelTests.swift in Sources */,
+				AE7218B5223DF34D00DC163F /* TransactionReportModel.swift in Sources */,
 				AEE1D5352238075F0020B8DA /* AppDelegateTests.swift in Sources */,
 				AE996D32223BD98E00F750A0 /* TransactionSearchViewModel.swift in Sources */,
 				AEE1D539223807860020B8DA /* TransactionViewControllerTests.swift in Sources */,
 				AE996D43223BF13100F750A0 /* TransactionSearchResultsTableViewControllerTests.swift in Sources */,
+				AE7218C9223F262C00DC163F /* TransactionPeriodModelTests.swift in Sources */,
+				AE7218B2223C40D200DC163F /* TransactionReportViewModel.swift in Sources */,
 				AE996D45223BF87000F750A0 /* TransactionSearchViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,7 +576,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunqian.MoneyMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -544,7 +594,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunqian.MoneyMachine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

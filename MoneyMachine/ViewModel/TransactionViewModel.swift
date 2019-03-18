@@ -49,7 +49,7 @@ class TransactionViewModel: TransactionBaseViewModel, TransactionViewModelProtoc
                             description: String,
                             tagIndex: Int,
                             transactionDataType: TransactionProtocol.Type,
-                            appDelegate: UIApplicationDelegate? =  UIApplication.shared.delegate) -> Bool {
+                            appDelegate: UIApplicationDelegate? = UIApplication.shared.delegate) -> Bool {
         
         guard userIndex <  users.count,
             tagIndex < tags.count,

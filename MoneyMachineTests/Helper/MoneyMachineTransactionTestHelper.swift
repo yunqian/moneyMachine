@@ -118,3 +118,41 @@ extension TransactionSearchResultTableViewCell {
         return subject
     }
 }
+
+extension TransactionReportTableViewCell {
+    static func testSubject() -> TransactionReportTableViewCell {
+        let subject = TransactionReportTableViewCell(style: .default, reuseIdentifier: "TransactionReportTableViewCell")
+        subject.userLabel = UILabel()
+        subject.totalSavingsLabel = UILabel()
+        subject.totalSpendingLabel = UILabel()
+        subject.tagsLabel = UILabel()
+        return subject
+    }
+}
+
+class FakeTransactionReportViewModel: TransactionReportProtocol {
+    var updateIndex: Int = -1
+    var didUpdatePeriodModel: Bool = false
+    var testTransactionResportRowViewModel: TransactionResportRowViewModel = TransactionResportRowViewModel()
+    
+    var numbersOfReportSection: Int {
+        return 1
+    }
+    
+    func rowNumbersOfReportSection(section: Int) -> Int {
+        return 2
+    }
+    
+    func reportSectionTitle(section: Int) -> String {
+        return "test title"
+    }
+    
+    func reportRowViewModel(at indexPath: IndexPath) -> TransactionResportRowViewModel {
+        return testTransactionResportRowViewModel
+    }
+    
+    func updatePeriodModel(at index: Int) {
+        didUpdatePeriodModel = true
+        updateIndex = index
+    }
+}

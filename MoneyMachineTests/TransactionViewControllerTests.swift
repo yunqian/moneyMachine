@@ -14,7 +14,7 @@ class TransactionViewControllerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        subject =  UIStoryboard(name: "Main", bundle: Bundle(for: TransactionViewController.self)).instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
+        subject = UIStoryboard(name: "Main", bundle: Bundle(for: TransactionViewController.self)).instantiateViewController(withIdentifier: "TransactionViewController") as? TransactionViewController
         subject.loadViewIfNeeded()
     }
 

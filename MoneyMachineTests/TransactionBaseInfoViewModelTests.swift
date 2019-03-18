@@ -20,6 +20,30 @@ class TransactionBaseInfoViewModelTests: XCTestCase {
         let fakeAppDelegate = FakeAppDelegate(fakePersistentContainer)
         subject = TransactionBaseInfoViewModel(appDelegate: fakeAppDelegate)
     }
+    
+    func testUserCount() {
+        // Given
+        let users = [User(), User()]
+        fakeViewContext.fetchResult = users
+        
+        // When
+        let userCount = subject.userCount
+        
+        // Then
+        XCTAssertEqual(userCount, 2)
+    }
+    
+    func testTagCount() {
+        // Given
+        let tags = [Tag(), Tag(), Tag()]
+        fakeViewContext.fetchResult = tags
+        
+        // When
+        let tagCount = subject.tagCount
+        
+        // Then
+        XCTAssertEqual(tagCount, 3)
+    }
 
     func testGetUsers() {
         // Given
